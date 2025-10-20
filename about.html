@@ -34,7 +34,7 @@
       .cs_toc a:hover { background: #f5f7fb; }
       .cs_toc a.active, .cs_toc a[aria-current="true"] { background: #111827; color: #fff; }
       /* Başlıklara sticky header çakışmasın diye offset */
-      .section-anchor { scroll-margin-top: 110px; }
+      .section-anchor { scroll-margin-top: var(--scroll-offset, 110px); }
     </style>
   </head>
 
@@ -87,7 +87,15 @@
               <div class="cs_nav cs_fs_18 cs_semibold">
                 <div class="cs_nav_list_wrap">
                   <ul class="cs_nav_list">
-                    <li class="cs_mega_menu"><a href="about.html">KURUMSAL</a></li>
+                    <li class="cs_mega_menu menu-item-has-children">
+                      <a href="about.html">KURUMSAL</a>
+                      <ul>
+                        <li><a href="about.html#h-hakkimizda" data-cat-link="consumer">Hakkımızda</a></li>
+                        <li><a href="about.html#h-kalite" data-cat-link="rx">Kalite ve Sürdürülebilirlik</a></li>
+                        <li><a href="about.html#h-prensipler" data-cat-link="rx">Temel Prensiplerimiz</a></li>
+                        <li><a href="about.html#h-gelecek" data-cat-link="rx">Geleceğe Yönelik Vizyonumuz</a></li>
+                      </ul>
+                    </li>
                     <li class="menu-item-has-children">
                       <a href="shop.html">ÜRÜNLER</a>
                       <ul>
@@ -136,6 +144,7 @@
           <nav id="docToc" class="cs_sticky_nav" aria-label="İçindekiler">
             <ul class="cs_toc">
               <!-- <li><a href="#h-misyon-1">Misyonumuz</a></li> -->
+              <li><a href="#h-hakkimizda">Hakkımızda</a></li>
               <li><a href="#h-misyon-2">Misyonumuz</a></li>
               <li><a href="#h-vizyon">Vizyonumuz</a></li>
               <li><a href="#h-kalite">Kalite ve Sürdürülebilirlik</a></li>
@@ -146,7 +155,7 @@
         </div>
         <div class="col-lg-8">
           <div class="cs_service_details">
-            <!-- <h3 id="h-misyon-1" class="section-anchor">Misyonumuz</h3> -->
+            <h3 id="h-hakkimizda" class="section-anchor">Hakkımızda</h3>
             <p>Pharmatrue Sağlık Malzemeleri A.Ş, 2023 yılında, sağlık sektörüne ilaç alanında yenilikçi yatırımlarla taze bir soluk getirmek ve katkı sağlamak amacıyla kurulmuştur. Bu iddialı adımı, "Geleceğe Doğru Bir Adım" mottosuyla birleştiren Pharmatrue, kalite, araştırma, yenilikçilik ve son teknolojiye olan bağlılığıyla öne çıkmaktadır. Temel değerlerimiz arasında bulunan bu ilkeler, ilaç sektöründe sıra dışı bir etki yaratmayı hedeflemektedir.</p>
             <p>Geniş bir terapötik alanı kapsayan ürün yelpazemiz, göğüs hastalıkları, dahiliye, gastroenteroloji, ortopedi, fizik tedavi ve rehabilitasyon, kulak-burun-boğaz, pediatri, aile hekimliği ve acil hekimliği gibi çeşitli alanlarda hastaların yaşam kalitesini artırmayı amaçlamaktadır. Pharmatrue olarak, her hastanın bireysel ihtiyaçlarına ve sağlık gereksinimlerine odaklanarak, kapsamlı ve yenilikçi çözümler sunmaya kararlıyız.</p>
             <p>Firmamızın kuruluş amacı, sadece hastalarımıza ilaç sağlamak değil, aynı zamanda sağlık sektöründe de dönüştürücü bir rol oynamaktır. Bu doğrultuda, sürekli olarak araştırma ve geliştirme faaliyetleri yürütüyor, sektördeki en son bilimsel ve teknolojik gelişmeleri yakından takip ediyoruz. Bu sayede, hastalarımızın güven ve memnuniyetini en üst düzeye çıkarmayı ve onlara en etkili tedavi seçeneklerini sunmayı hedefliyoruz.</p>
@@ -314,6 +323,127 @@
         }
       })();
     </script>
+    <script>
+  (function () {
+    var toc = document.querySelector('#docToc');
+    var links = toc ? Array.from(toc.querySelectorAll('a[href^="#"]')) : [];
+    var sections = links
+      .map(function (a) {
+        var id = a.getAttribute('href');
+        try { return document.querySelector(id); } catch (e) { return null; }
+      })
+      .filter(Boolean);
+
+    function getHeaderOffset() {
+      var sticky = document.querySelector('.cs_site_header');
+      var topInfo = document.querySelector('.cs_main_header.top-info'); // üst şerit
+      var h = 0;
+      if (sticky) h += sticky.offsetHeight || 0;
+      if (topInfo) h += topInfo.offsetHeight || 0;
+      return h + 20; // biraz nefes payı
+    }
+
+    function applyScrollMarginVar() {
+      var off = getHeaderOffset();
+      document.documentElement.style.setProperty('--scroll-offset', off + 'px');
+    }
+
+    function scrollToEl(el, behavior) {
+      if (!el) return;
+      var y = el.getBoundingClientRect().top + window.scrollY - getHeaderOffset();
+      window.scrollTo({ top: y, behavior: behavior || 'smooth' });
+    }
+
+    function setActiveById(id) {
+      if (!links.length || !id) return;
+      var hash = '#' + id.replace(/^#/, '');
+      var active = links.find(function (a) { return a.getAttribute('href') === hash; });
+      links.forEach(function (l) {
+        var isActive = l === active;
+        l.classList.toggle('active', isActive);
+        l.setAttribute('aria-current', isActive ? 'true' : 'false');
+      });
+    }
+
+    function getTargetFromUrl() {
+      var sp = new URLSearchParams(location.search);
+      var q = sp.get('to') || sp.get('section') || sp.get('h'); // ?to=h-vizyon gibi
+      var hash = location.hash ? location.hash.replace(/^#/, '') : null;
+      var id = (q || hash || '').trim();
+      if (!id) return null;
+      return document.getElementById(id);
+    }
+
+    // TOC içi tıklamalar (smooth + aktiflik)
+    if (toc) {
+      toc.addEventListener('click', function (e) {
+        var a = e.target.closest('a[href^="#"]');
+        if (!a) return;
+        e.preventDefault();
+        var target = document.querySelector(a.getAttribute('href'));
+        if (!target) return;
+        history.replaceState(null, '', a.getAttribute('href'));
+        scrollToEl(target, 'smooth');
+        setActiveById(target.id);
+      });
+    }
+
+    // Sayfa yüklenince (URL’den gelindiyse) hedefe kaydır
+    function initialDeepLinkScroll() {
+      var target = getTargetFromUrl();
+      if (!target) {
+        // Varsayılan ilk link aktif
+        if (links[0]) setActiveById(links[0].getAttribute('href').replace('#', ''));
+        return;
+      }
+      // Layout tamamen otursun diye biraz bekletiyoruz
+      // (fontlar / görseller / sticky yükseklikleri)
+      requestAnimationFrame(function () {
+        applyScrollMarginVar();
+        // Tekrar ölç, yine de gerekirse kısa bir gecikme:
+        setTimeout(function () {
+          scrollToEl(target, 'smooth');
+          setActiveById(target.id);
+        }, 50);
+      });
+    }
+
+    // Hash değişirse (harici link / tarayıcı geri/ileri)
+    window.addEventListener('hashchange', function () {
+      applyScrollMarginVar();
+      var target = getTargetFromUrl();
+      if (target) {
+        scrollToEl(target, 'smooth');
+        setActiveById(target.id);
+      }
+    });
+
+    // Scroll spy (başlık görünür olunca TOC güncelle)
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          setActiveById(entry.target.id);
+        }
+      });
+    }, { root: null, rootMargin: '-120px 0px -60% 0px', threshold: [0, 1] });
+
+    sections.forEach(function (s) { spy.observe(s); });
+
+    // Dinamik header yüksekliği için resize’da güncelle
+    window.addEventListener('resize', function () {
+      applyScrollMarginVar();
+    });
+
+    // Başlat
+    applyScrollMarginVar();
+
+    if (document.readyState === 'complete') {
+      initialDeepLinkScroll();
+    } else {
+      window.addEventListener('load', initialDeepLinkScroll);
+    }
+  })();
+</script>
   </body>
 
   <!-- Mirrored from medixal-html.vercel.app/service-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 15 Sep 2025 10:37:03 GMT -->
