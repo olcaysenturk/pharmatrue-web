@@ -24,6 +24,32 @@
   <link rel="stylesheet" href="assets/css/jquery-timepicker.min.css">
   <link rel="stylesheet" href="assets/css/select2.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- === Ek: Uyumlu üst not ve modal için küçük stil dokunuşları === -->
+  <style>
+    /* Ürün listesinin üstündeki bilgilendirme kartı */
+    .cs_notice_card{background:#f6f9ff;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:16px 20px;display:flex;gap:12px;align-items:flex-start}
+    .cs_notice_card i{margin-top:2px;font-size:20px}
+
+    /* Pop‑up (tasarıma uyumlu, hafif) */
+    .cs_modal_notice{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center}
+    .cs_modal_notice.open{display:flex}
+    .cs_modal_notice .cs_modal_overlay{position:absolute;inset:0;background:rgba(0,0,0,.5)}
+    .cs_modal_notice .cs_modal_box{position:relative;background:#fff;max-width:640px;width:92%;border-radius:16px;padding:24px;box-shadow:0 20px 50px rgba(0,0,0,.2)}
+    .cs_modal_notice .cs_modal_title{font-size:24px;font-weight:800;margin:0 0 8px}
+    .cs_modal_notice .cs_modal_desc{margin:0 0 16px;line-height:1.6}
+    .cs_modal_notice .cs_modal_actions{display:flex;gap:12px;justify-content:flex-end;align-items:center;margin-top:12px}
+    .cs_modal_notice .cs_modal_close{position:absolute;top:10px;right:12px;border:0;background:transparent;font-size:28px;line-height:1;cursor:pointer}
+    body.overflow-hidden{overflow:hidden}
+    @media (max-width:575.98px){.cs_modal_notice .cs_modal_box{padding:18px}}
+  </style>
+  <!-- === Tabs için mini stil === -->
+  <style>
+    .cs_tabbar{display:flex;gap:8px;flex-wrap:wrap;border:1px solid rgba(0,0,0,.06);background:#fff;border-radius:12px;padding:6px}
+    .cs_tab_btn{border:0;background:transparent;padding:8px 12px;border-radius:8px;font-weight:600;color:#2a2e33;cursor:pointer}
+    .cs_tab_btn.active{background:#111827;color:#fff}
+    .cs_empty{display:none;text-align:center;padding:24px;border:1px dashed rgba(0,0,0,.12);border-radius:12px;background:#fafafa}
+  </style>
 </head>
 
 <body>
@@ -83,9 +109,9 @@
                   <li class="menu-item-has-children">
                     <a href="shop.html">ÜRÜNLER</a>
                     <ul>
-                      <li><a href="#">Tüketici Sağlığı</a></li>
-                      <li><a href="#">Tıbbi Cihaz Ürünleri</a></li>
-                      <li><a href="#">Reçeteli Ürünler</a></li>
+                      <li><a href="shop.html#cat=consumer" data-cat-link="consumer">Tüketici Sağlığı</a></li>
+                      <li><a href="shop.html#cat=device" data-cat-link="device">Tıbbi Cihaz Ürünleri</a></li>
+                      <li><a href="shop.html#cat=rx" data-cat-link="rx">Reçeteli Ürünler</a></li>
                     </ul>
                   </li>
                   
@@ -120,10 +146,7 @@
     <div class="container">
       <div class="cs_page_heading_in">
         <h1 class="cs_page_heading_title cs_fs_48 cs_white_color">Ürünler</h1>
-        <p style="color: white;">
-          “İlaçlarımızın kullanımı hekim önerisiyle olmalıdır. <br>
-          Doz, kullanım şekli ve olası yan etkiler için kutu içindeki prospektüsü dikkatle okuyun.”
-        </p>
+        
       </div>
     </div>
   </section>
@@ -131,6 +154,25 @@
   <!-- Start Product List -->
   <div class="cs_height_120 cs_height_lg_80"></div>
   <div class="container">
+
+    <!-- === Ek: Üst Bilgilendirme Notu === -->
+    <div class="cs_notice_card" role="note" aria-label="Bilgilendirme">
+      <i class="fa-solid fa-circle-info cs_accent_color" aria-hidden="true"></i>
+      <div>
+        <p class="mb-0"><strong>Bilgilendirme:</strong> Pharmatrue İlaç ürün portföyünde bulunan ürünler aşağıda listelenmiştir. Bu sayfaların sağlık profesyonellerinin kullanımına yönelik olduğunu unutmayınız.</p>
+      </div>
+    </div>
+    <div class="cs_height_30 cs_height_lg_20"></div>
+
+    <!-- Tabs -->
+    <div id="productTabs" class="cs_tabbar" role="tablist" aria-label="Ürün Kategorileri">
+      <button class="cs_tab_btn active" data-tab="all" role="tab" aria-selected="true">Tümü</button>
+      <button class="cs_tab_btn" data-tab="consumer" role="tab" aria-selected="false">Tüketici Sağlığı</button>
+      <button class="cs_tab_btn" data-tab="device" role="tab" aria-selected="false">Tıbbi Cihaz Ürünleri</button>
+      <button class="cs_tab_btn" data-tab="rx" role="tab" aria-selected="false">Reçeteli Ürünler</button>
+    </div>
+    <div class="cs_height_30 cs_height_lg_20"></div>
+
     <div class="cs_shop_filter_wrap">
       <!-- <div class="cs_result_info">
         <span class=" cs_fs_18 cs_bold cs_heading_color">Showing Result:</span>
@@ -144,158 +186,102 @@
         </select>
       </form> -->
     </div>
+    <div id="noResults" class="cs_empty">Bu kategoride ürün bulunamadı.</div>
     <div class="cs_height_50 cs_height_lg_40"></div>
-    <div class="row cs_row_gap_30 cs_gap_y_30">
+
+    <div id="productGrid" class="row cs_row_gap_30 cs_gap_y_30">
       <div class="col-lg-4 col-sm-6">
         <div class="cs_product_card cs_style_1">
           <div class="cs_product_thumbnail cs_center">
-            <img src="assets/img/products/deksolex-25mg.jpg" alt="Product">
-            <!-- <div class="cs_card_btns">
-              <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-              <a href="#"><i class="fa-solid fa-heart"></i></a>
-              <a href="shop-details.html"><i class="fa-solid fa-eye"></i></a>
-            </div> -->
+            <img src="assets/img/products/deksolex-25mg.jpg" alt="Product" data-cat="rx">
           </div>
           <div class="cs_product_info text-center">
-            <h2 class="cs_product_title cs_fs_20 cs_semibold"><a href="shop-details.html">Deksolex 25mg</a>
-            </h2>
-            <!-- <p class="cs_product_price cs_fs_18"><s>$1000.00</s> <span class="cs_medium cs_heading_color">$800.00</span> -->
-            </p>
+            <h2 class="cs_product_title cs_fs_20 cs_semibold"><a href="shop-details.html">Deksolex 25mg</a></h2>
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-sm-6">
         <div class="cs_product_card cs_style_1">
           <div class="cs_product_thumbnail cs_center">
-            <img src="assets/img/products/kinomox-400mg.jpg" alt="Product">
-            <!-- <div class="cs_card_btns">
-              <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-              <a href="#"><i class="fa-solid fa-heart"></i></a>
-              <a href="shop-details.html"><i class="fa-solid fa-eye"></i></a>
-            </div> -->
+            <img src="assets/img/products/kinomox-400mg.jpg" alt="Product" data-cat="rx">
           </div>
           <div class="cs_product_info text-center">
-            <h2 class="cs_product_title cs_fs_20 cs_semibold"><a href="shop-details.html">Kinomox 400mg</a>
-            </h2>
-            <!-- <p class="cs_product_price cs_fs_18"><s>$900.00</s> <span class="cs_medium cs_heading_color">$800.00</span> -->
+            <h2 class="cs_product_title cs_fs_20 cs_semibold"><a href="shop-details.html">Kinomox 400mg</a></h2>
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-sm-6">
         <div class="cs_product_card cs_style_1">
           <div class="cs_product_thumbnail cs_center">
-            <img src="assets/img/products/raventris-100mg.jpg" alt="Product">
-            <!-- <div class="cs_card_btns">
-              <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-              <a href="#"><i class="fa-solid fa-heart"></i></a>
-              <a href="shop-details.html"><i class="fa-solid fa-eye"></i></a>
-            </div> -->
+            <img src="assets/img/products/raventris-100mg.jpg" alt="Product" data-cat="rx">
           </div>
           <div class="cs_product_info text-center">
-            <h2 class="cs_product_title cs_fs_20 cs_semibold"><a href="shop-details.html">Raventris 100mg</a>
-            </h2>
-            <!-- <p class="cs_product_price cs_fs_18"><s>$850.00</s> <span class="cs_medium cs_heading_color">$750.00</span> -->
+            <h2 class="cs_product_title cs_fs_20 cs_semibold"><a href="shop-details.html">Raventris 100mg</a></h2>
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-sm-6">
         <div class="cs_product_card cs_style_1">
           <div class="cs_product_thumbnail cs_center">
-            <img src="assets/img/products/raventris-10mg.jpg" alt="Product">
-            <!-- <div class="cs_card_btns">
-              <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-              <a href="#"><i class="fa-solid fa-heart"></i></a>
-              <a href="shop-details.html"><i class="fa-solid fa-eye"></i></a>
-            </div> -->
+            <img src="assets/img/products/raventris-10mg.jpg" alt="Product" data-cat="rx">
           </div>
           <div class="cs_product_info text-center">
             <h2 class="cs_product_title cs_fs_20 cs_semibold"><a href="shop-details.html">Raventris 10mg</a></h2>
-            <!-- <p class="cs_product_price cs_fs_18"><s>$10.00</s> <span class="cs_medium cs_heading_color">$8.00</span> -->
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-sm-6">
         <div class="cs_product_card cs_style_1">
           <div class="cs_product_thumbnail cs_center">
-            <img src="assets/img/products/raventris-30mg.jpg" alt="Product">
-            <!-- <div class="cs_card_btns">
-              <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-              <a href="#"><i class="fa-solid fa-heart"></i></a>
-              <a href="shop-details.html"><i class="fa-solid fa-eye"></i></a>
-            </div> -->
+            <img src="assets/img/products/raventris-30mg.jpg" alt="Product" data-cat="rx">
           </div>
           <div class="cs_product_info text-center">
             <h2 class="cs_product_title cs_fs_20 cs_semibold"><a href="shop-details.html">Raventris 30mg</a></h2>
-            <!-- <p class="cs_product_price cs_fs_18"><s>$100.00</s> <span class="cs_medium cs_heading_color">$80.00</span> -->
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-sm-6">
         <div class="cs_product_card cs_style_1">
           <div class="cs_product_thumbnail cs_center">
-            <img src="assets/img/products/talavist/talavist-20mg.jpg" alt="Product">
-            <!-- <div class="cs_card_btns">
-              <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-              <a href="#"><i class="fa-solid fa-heart"></i></a>
-              <a href="shop-details.html"><i class="fa-solid fa-eye"></i></a>
-            </div> -->
+            <img src="assets/img/products/talavist/talavist-20mg.jpg" alt="Product" data-cat="consumer">
           </div>
           <div class="cs_product_info text-center">
             <h2 class="cs_product_title cs_fs_20 cs_semibold"><a href="shop-details.html">Talavist 20mg</a></h2>
-            <!-- <p class="cs_product_price cs_fs_18"><s>$200.00</s> <span class="cs_medium cs_heading_color">$180.00</span> -->
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-sm-6">
         <div class="cs_product_card cs_style_1">
           <div class="cs_product_thumbnail cs_center">
-            <img src="assets/img/products/talavist/talavist-5mg.jpg" alt="Product">
-            <!-- <div class="cs_card_btns">
-              <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-              <a href="#"><i class="fa-solid fa-heart"></i></a>
-              <a href="shop-details.html"><i class="fa-solid fa-eye"></i></a>
-            </div> -->
+            <img src="assets/img/products/talavist/talavist-5mg.jpg" alt="Product" data-cat="consumer">
           </div>
           <div class="cs_product_info text-center">
             <h2 class="cs_product_title cs_fs_20 cs_semibold"><a href="shop-details.html">Talavist 5mg</a></h2>
-            <!-- <p class="cs_product_price cs_fs_18"><s>$100.00</s> <span class="cs_medium cs_heading_color">$80.00</span> -->
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-sm-6">
         <div class="cs_product_card cs_style_1">
           <div class="cs_product_thumbnail cs_center">
-            <img src="assets/img/products/tio-deksolex-25mg-4mg.jpg" alt="Product">
-            <!-- <div class="cs_card_btns">
-              <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-              <a href="#"><i class="fa-solid fa-heart"></i></a>
-              <a href="shop-details.html"><i class="fa-solid fa-eye"></i></a>
-            </div> -->
+            <img src="assets/img/products/tio-deksolex-25mg-4mg.jpg" alt="Product" data-cat="rx">
           </div>
           <div class="cs_product_info text-center">
             <h2 class="cs_product_title cs_fs_20 cs_semibold"><a href="shop-details.html">Tio Deksolex 25mg 4mg</a></h2>
-            <!-- <p class="cs_product_price cs_fs_18"><s>$300.00</s> <span class="cs_medium cs_heading_color">$280.00</span> -->
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-sm-6">
         <div class="cs_product_card cs_style_1">
           <div class="cs_product_thumbnail cs_center">
-            <img src="assets/img/products/tio-deksolex-25mg-8mg.jpg" alt="Product">
-            <!-- <div class="cs_card_btns">
-              <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-              <a href="#"><i class="fa-solid fa-heart"></i></a>
-              <a href="shop-details.html"><i class="fa-solid fa-eye"></i></a>
-            </div> -->
+            <img src="assets/img/products/tio-deksolex-25mg-8mg.jpg" alt="Product" data-cat="rx">
           </div>
           <div class="cs_product_info text-center">
-            <h2 class="cs_product_title cs_fs_20 cs_semibold"><a href="shop-details.html">Tio Deksolex 25mg 4mg</a>
-            </h2>
-            <p class="cs_product_price cs_fs_18"><s>$100.00</s> <span class="cs_medium cs_heading_color">$80.00</span>
+            <h2 class="cs_product_title cs_fs_20 cs_semibold"><a href="shop-details.html">Tio Deksolex 25mg 8mg</a></h2>
           </div>
         </div>
       </div>
     </div>
+
     <div class="cs_height_50 cs_height_lg_40"></div>
     <ul class="cs_pagination_box cs_center cs_white_color cs_mp_0 cs_semibold">
       <li>
@@ -313,6 +299,7 @@
   </div>
   <div class="cs_height_120 cs_height_lg_80"></div>
   <!-- End Product List -->
+
   <!-- Start Footer Section -->
   <footer class="cs_footer cs_style_1 cs_heading_bg">
     <div class="container cs_white_color">
@@ -321,9 +308,6 @@
           <div class="cs_footer_widget">
             <div class="cs_footer_text_widget">
               <img src="img/logo.png" alt="Logo" style="height: 30px;">
-              <!-- <p>
-                Merkez Yassıören Mah. Ağaçkakan Sok. No:15/A Arnavutköy / İstanbul / Türkiye
-              </p> -->
             </div>
             <div class="cs_social_btns cs_style_1">
               <a href="#" class="cs_center">
@@ -378,12 +362,12 @@
       <div class="container">
         <div class="cs_footer_bottom_in">
           <p class="cs_copyright mb-0">Pharmatrue 2025. Tüm hakları saklıdır.</p>
-
         </div>
       </div>
     </div>
   </footer>
   <!-- End Footer Section -->
+
   <!-- Start Scroll Up Button -->
   <span class="cs_scrollup">
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -392,9 +376,23 @@
   </span>
   <!-- End Scroll Up Button -->
 
-  <!-- Start Color Chnage  -->
-
-  <!-- End Color Chnage  -->
+  <!-- === Pop‑up: Sağlık Profesyoneli Onayı (sayfa açılışında bir kez) === -->
+  <div class="cs_modal_notice" id="hcpNotice" aria-hidden="true">
+    <div class="cs_modal_overlay" tabindex="-1"></div>
+    <div class="cs_modal_box" role="dialog" aria-modal="true" aria-labelledby="hcpTitle" aria-describedby="hcpDesc">
+      <button class="cs_modal_close" aria-label="Kapat">&times;</button>
+      <h3 id="hcpTitle" class="cs_modal_title">Sağlık profesyonellerine yönelik içerik</h3>
+      <p id="hcpDesc" class="cs_modal_desc">Bu sayfa, Pharmatrue İlaç’ın ürün portföyüne ilişkin bilgiler içerir ve sağlık profesyonellerinin kullanımına yöneliktir. Doz, kullanım ve olası yan etkiler için prospektüsü dikkatle okuyunuz.</p>
+      <div class="form-check" style="margin-bottom:8px">
+        <input class="form-check-input" type="checkbox" id="dontShow" checked>
+        <label class="form-check-label" for="dontShow">Bir daha gösterme</label>
+      </div>
+      <div class="cs_modal_actions">
+        <a href="index.html" class="btn btn-outline-secondary">Anasayfaya dön</a>
+        <button class="btn btn-primary" id="btnHcpAccept">Devam et</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Script -->
   <script src="assets/js/jquery-3.7.1.min.js"></script>
@@ -407,6 +405,64 @@
   <script src="assets/js/select2.min.js"></script>
   <script src="assets/js/ripples.min.js"></script>
   <script src="assets/js/main.js"></script>
+
+  <!-- === Ek: Pop‑up davranışı === -->
+  <script>
+    (function($){
+      $(function(){
+        var KEY = 'pharmatrue_hcp_ack';
+        var $modal = $('#hcpNotice');
+        function open(){ $modal.addClass('open'); $('body').addClass('overflow-hidden'); }
+        function close(){ $modal.removeClass('open'); $('body').removeClass('overflow-hidden'); }
+        setTimeout(open, 300); 
+        // if (localStorage.getItem(KEY) !== '1') {
+        //   setTimeout(open, 300); // sayfa yüklendikten kısa süre sonra aç
+        // }
+        $('#btnHcpAccept').on('click', function(){
+          if ($('#dontShow').is(':checked')) {
+            try { localStorage.setItem(KEY, '1'); } catch(e) {}
+          }
+          close();
+        });
+        $modal.on('click', '.cs_modal_close, .cs_modal_overlay', close);
+        $(document).on('keydown', function(e){ if(e.key === 'Escape' && $modal.hasClass('open')) close(); });
+      });
+    })(jQuery);
+  </script>
+  <!-- === Tabs davranışı === -->
+  <script>
+    (function($){
+      $(function(){
+        var $grid = $('#productGrid');
+        var $cols = $grid.children('[class*="col-"]');
+        var $tabbar = $('#productTabs');
+        var $empty = $('#noResults');
+
+        function applyTab(cat, scroll){
+          $tabbar.find('.cs_tab_btn').each(function(){
+            var isActive = $(this).data('tab') === cat || (cat==='all' && $(this).data('tab')==='all');
+            $(this).toggleClass('active', isActive).attr('aria-selected', isActive);
+          });
+          if(cat === 'all'){
+            $cols.show();
+            $empty.hide();
+          } else {
+            $cols.hide();
+            var $match = $cols.filter(':has([data-cat="'+cat+'"])');
+            $match.show();
+            $empty.toggle($match.length === 0);
+          }
+          if(scroll){ document.getElementById('productTabs').scrollIntoView({behavior:'smooth', block:'start'}); }
+        }
+        function getCatFromHash(){ var m = (location.hash||'').match(/cat=([a-z]+)/i); return m ? m[1] : 'all'; }
+        function setHash(cat){ if(cat==='all'){ history.replaceState(null,'', location.pathname); } else { location.hash = 'cat='+cat; } }
+
+        $tabbar.on('click', '.cs_tab_btn', function(){ var cat=$(this).data('tab'); setHash(cat); applyTab(cat, true); });
+        $(window).on('hashchange', function(){ applyTab(getCatFromHash(), true); });
+        applyTab(getCatFromHash(), false);
+      });
+    })(jQuery);
+  </script>
 </body>
 
 <!-- Mirrored from medixal-html.vercel.app/shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 15 Sep 2025 10:37:14 GMT -->

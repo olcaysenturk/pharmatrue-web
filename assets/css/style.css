@@ -4302,6 +4302,10 @@ a.ui-button:active,
   .cs_site_header.cs_style_1.cs_type_2 .cs_btn.cs_style_1 {
     display: none;
   }
+  
+  .cs_site_header.cs_style_1 {
+        padding-top: 34px;
+  }
 }
 .cs_header_btn_1 {
   display: inline-block;
