@@ -6,8 +6,9 @@ export function generateStaticParams() {
   return [{ locale: "tr" }, { locale: "en" }];
 }
 
-export function generateMetadata({ params }) {
-  const localeMessages = getMessages(params?.locale);
+export async function generateMetadata({ params }) {
+  const resolvedParams = await params;
+  const localeMessages = getMessages(resolvedParams?.locale);
   return {
     title: localeMessages.metadata.title,
     description: localeMessages.metadata.description,
