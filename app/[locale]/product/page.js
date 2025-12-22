@@ -205,7 +205,10 @@ function ProductPageInner() {
             <div className="col-lg-4 col-sm-6" key={product.id}>
               <div className="cs_product_card cs_style_1 h-100">
                 <div className="cs_product_thumbnail cs_center">
-                  <Link href={buildHref(`/product/${product.id}`)} className="d-block">
+                  <Link
+                    href={buildHref(`/product/${product.slug ?? product.id}`)}
+                    className="d-block"
+                  >
                     <Image
                       src={product.image}
                       alt={product.name}
@@ -218,7 +221,7 @@ function ProductPageInner() {
                 </div>
                 <div className="cs_product_info text-center">
                   <h2 className="cs_product_title cs_fs_20 cs_semibold">
-                    <Link href={buildHref(`/product/${product.id}`)}>
+                    <Link href={buildHref(`/product/${product.slug ?? product.id}`)}>
                       {product.name}
                     </Link>
                   </h2>

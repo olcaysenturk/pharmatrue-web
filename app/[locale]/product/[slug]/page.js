@@ -8,12 +8,14 @@ import { getMessages } from "../../../locales/messages";
 
 const LOCALES = ["tr", "en"];
 export const dynamicParams = false;
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export function generateStaticParams() {
   const params = [];
   for (const locale of LOCALES) {
     for (const product of PRODUCTS) {
-      params.push({ locale, slug: product.slug });
+      params.push({ locale, slug: product.slug ?? product.id });
       if (product.legacySlug) {
         params.push({ locale, slug: product.legacySlug });
       }
@@ -23,14 +25,17 @@ export function generateStaticParams() {
 }
 
 function getProduct(slugOrId) {
-  return PRODUCTS.find(
-    (item) =>
-      item.slug === slugOrId || item.id === slugOrId || item.legacySlug === slugOrId,
-  );
+  return PRODUCTS.find((item) => {
+    return (
+      item.slug === slugOrId ||
+      item.id === slugOrId ||
+      (!!item.legacySlug && item.legacySlug === slugOrId)
+    );
+  });
 }
 
-export default function ProductDetailPage({ params }) {
-  const { slug, locale } = params;
+export default async function ProductDetailPage({ params }) {
+  const { slug, locale } = await params;
   const messages = getMessages(locale);
   const productBase = getProduct(slug);
   const product = productBase ? shapeProductForLocale(productBase, locale) : null;

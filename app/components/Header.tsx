@@ -30,6 +30,7 @@ export function Header() {
   const [searchTerm, setSearchTerm] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const localePrefix = locale === "en" ? "/en" : "/tr";
   const buildHref = (path: string) => {
@@ -104,9 +105,20 @@ export function Header() {
     return () => document.body.classList.remove("overflow-hidden");
   }, [isMenuOpen, isSearchOpen]);
 
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      <header className="sticky w-full top-0 z-40 backdrop-blur -mb-[65px]">
+      <header
+        className={`sticky w-full top-0 z-40 backdrop-blur -mb-[65px] transition-colors ${
+          isScrolled ? "bg-[#132573]/90 shadow-lg active" : "bg-transparent"
+        }`}
+      >
         <div className="container-fluid">
           <div className="flex h-16 items-center justify-between gap-4">
             <div className="flex items-center gap-4 justify-between lg:justify-around w-full">

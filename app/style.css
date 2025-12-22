@@ -1552,7 +1552,11 @@ hr {
 }
 
 .cs_accent_color {
-  color: var(--accent-color);
+  color: #353434;
+}
+
+.active .cs_accent_color {
+  color: #ccc;
 }
 
 .cs_white_bg {
