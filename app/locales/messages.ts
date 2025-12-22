@@ -1,0 +1,463 @@
+export const messages = {
+  tr: {
+    locale: "tr",
+    common: {
+      scrollTop: "Başa dön",
+    },
+    metadata: {
+      title: "Pharmatrue | “Geleceğe Doğru Bir Adım”",
+      description: "“Geleceğe Doğru Bir Adım”",
+    },
+    header: {
+      searchAria: "Arama yap",
+      searchPlaceholder: "Arama yap",
+      searchClose: "Aramayı kapat",
+      nav: {
+        about: "HAKKIMIZDA",
+        products: "ÜRÜNLER",
+        consumer: "Tüketici Sağlığı Ürünleri",
+        rx: "Reçeteli Ürünler",
+        brandsTitle: "Markalar",
+        brands: {
+          bgood: "B-good Care",
+          protexus: "Protexus",
+        },
+        contact: "İLETİŞİM",
+      },
+    },
+    footer: {
+      quickLinks: "Hızlı Erişim",
+      corporate: "Hakkımızda",
+      products: "Ürünler",
+      contact: "İletişim",
+      legal: "Yasal Bilgiler",
+      privacyNotice: "Aydınlatma Metni",
+      privacy: "Gizlilik Politikası",
+      infoSociety: "Bilgi Toplumu Hizmetleri",
+      disclosure: "Aydınlatma Metni",
+      privacyPolicy: "Gizlilik Politikası",
+      office: "Ofis",
+      address:
+        "Merkez Yassıören Mah. Ağaçkakan Sok. No:15/A Arnavutköy / İstanbul / Türkiye",
+      phoneLabel: "444 8 717",
+      copyright: "Pharmatrue 2025. Tüm hakları saklıdır.",
+      disclaimer:
+        "Bu sitede yer alan bilgiler, hekim ve eczacıya danışmanın yerine geçmez.",
+    },
+    hero: {
+      eyebrow: "Pharmatrue",
+      title: "Kalite, güven ve etik değerlerle geleceğe doğru bir adım",
+      body:
+        "Bilimin rehberliğinde, sağlık profesyonelleri ve hastalar için güvenilir çözümler sunarak daha sağlıklı bir geleceğe katkı sağlıyoruz.",
+      cta: "Daha fazlası için kaydırın",
+    },
+    why: {
+      subtitle: "Değerlerimiz",
+      title: "NEDEN PHARMATRUE?",
+      body:
+        "Kalite ve güvenilirlik, bilimsel tutarlılık ve sürdürülebilirlik odağımızla sağlık profesyonelleri ve hastalar için güvenilir çözümler üretiyoruz.",
+      highlights: [
+        { title: "Kalite ve Güven" },
+        { title: "Bilimsel Tutarlılık" },
+        { title: "Sürdürülebilirlik" },
+      ],
+    },
+    brands: {
+      heading: "MARKALARIMIZ",
+    },
+    product: {
+      pageTitle: "Ürünler",
+      noticeTitle: "Bilgilendirme:",
+      noticeBody:
+        "Pharmatrue İlaç ürün portföyünde bulunan ürünler aşağıda listelenmiştir. Bu sayfaların sağlık profesyonellerinin kullanımına yönelik olduğunu unutmayınız.",
+      tabs: {
+        all: "Tümü",
+        consumer: "Tüketici Sağlığı",
+        device: "Tıbbi Cihaz Ürünleri",
+        rx: "Reçeteli Ürünler",
+      },
+      empty: "Bu kategoride ürün bulunamadı.",
+      detail: {
+        active: "Etkin Madde:",
+        kub: "KÜB:",
+        size: "Hacim:",
+        learnMore: "Detaylı bilgi için tıklayınız",
+        categories: {
+          consumer: "Tüketici Sağlığı",
+          device: "Tıbbi Cihaz Ürünleri",
+          rx: "Reçeteli Ürünler",
+        },
+      },
+      pagination: {
+        prev: "Önceki",
+        next: "Sonraki",
+      },
+    },
+    hcp: {
+      title: "Sağlık profesyonellerine yönelik içerik",
+      body: "Bu sayfa, Pharmatrue İlaç’ın ürün portföyüne ilişkin bilgiler içerir ve sağlık profesyonellerinin kullanımına yöneliktir. Doz, kullanım ve olası yan etkiler için prospektüsü dikkatle okuyunuz.",
+      dontShow: "Bir daha gösterme",
+      backHome: "Anasayfaya dön",
+      continue: "Devam et",
+      close: "Kapat",
+    },
+    contact: {
+      pageTitle: "İletişim",
+      formTitle: "Bizimle İletişime Geçin",
+      formSubtitle: "Bize bir mesaj gönderin, en kısa sürede yanıt vereceğiz",
+      placeholders: {
+        firstName: "Adınız*",
+        lastName: "Soyadınız*",
+        email: "Mail Adres*",
+        phone: "Telefon*",
+        subject: "Mesajınız*",
+        message: "Mesajınızı yazınız",
+      },
+      submit: "Gönder",
+      needHelpTitle: "Yardıma mı İhtiyacınız var?",
+      needHelpSubtitle:
+        "Bizi arayın veya mesaj gönderin, en kısa sürede yanıt vereceğiz",
+      hoursNote: "Hafta içi 09.00 - 18.00",
+      emailNote: "E-posta ile dilediğiniz an ulaşabilirsiniz",
+      addressLabel: "Adres",
+      phone: "444 8 717",
+      email: "info@pharmatrue.com.tr",
+      address: "Yassıören Mah. Ağaçkakan Sok. No:15/A Arnavutköy / İstanbul / Türkiye",
+    },
+    about: {
+      pageTitle: "Hakkımızda",
+      toc: [
+        { href: "#h-hakkimizda", label: "Biz Kimiz" },
+        { href: "#h-misyon-2", label: "Misyonumuz" },
+        { href: "#h-vizyon", label: "Vizyonumuz" },
+        { href: "#h-kalite", label: "Kalite ve Sürdürülebilirlik" },
+        { href: "#h-prensipler", label: "Değerlerimiz" },
+        { href: "#h-gelecek", label: "Gelecek Perspektifimiz" },
+      ],
+      sections: {
+        aboutTitle: "Biz Kimiz",
+        aboutParagraphs: [
+          "Pharmatrue Sağlık Malzemeleri A.Ş., 2023 yılında sağlık sektörüne yenilikçi bir bakış kazandırmak amacıyla kurulmuştur.",
+          "“Geleceğe Doğru Bir Adım” mottosuyla yola çıkan Pharmatrue, kalite, güven ve etik değerlere bağlı yaklaşımıyla fark yaratmaktadır.",
+          "Bilimin rehberliğinde, sağlık profesyonelleri ve hastalar için güvenilir çözümler sunarak, daha sağlıklı bir geleceğe katkı sağlamayı amaçlıyoruz.",
+          "Pharmatrue, ilaç sektöründe etik, bilimsel ve kalite odaklı anlayışıyla faaliyet gösteren bir sağlık kuruluşudur.",
+          "Temel amacımız, güvenilir ürünleri sağlık profesyonelleriyle buluşturarak toplum sağlığını desteklemektir.",
+          "Her adımda insana değer veren, sürdürülebilirlik ilkesine bağlı, bilimsel doğrularla hareket eden bir kurumsal kültürle ilerliyoruz.",
+        ],
+        missionTitle: "Misyonumuz",
+        missionBody:
+          "Sağlık alanında kaliteli, güvenilir ve etik değerlere uygun ürünleri sağlık profesyonellerine sunarak, toplumun yaşam kalitesine katkıda bulunmaktır.",
+        visionTitle: "Vizyonumuz",
+        visionBody:
+          "Bilimsel doğrular, güçlü iş birlikleri ve yüksek kalite anlayışıyla, ilaç sektöründe öncü, güvenilir ve itibarlı bir marka olmaktır.",
+        qualityTitle: "Kalite ve Sürdürülebilirlik",
+        qualityBody:
+          "Tüm faaliyetlerimizi uluslararası kalite standartları, etik çalışma ilkeleri ve çevreye duyarlı bir anlayış çerçevesinde yürütüyoruz. Amacımız, insana ve topluma değer katan kalıcı bir sağlık markası olmaktır.",
+        principlesTitle: "Değerlerimiz",
+        principlesParagraphs: [
+          "Kalite ve Güvenilirlik: Etik değerlere bağlı kalarak, güvenilir ve sürdürülebilir bir anlayışla faaliyet gösteririz.",
+          "Bilimsel Tutarlılık: Tüm çalışmalarımızda bilimsel doğruluk ve güncel klinik veriler temel alınır.",
+          "Ekip Ruhu: Pharmatrue ailesinin her üyesi bizim için değerlidir. İş birliği ve iletişim kültürüyle güçlü bir ekip yapısı oluştururuz.",
+          "Sürdürülebilirlik ve Sorumluluk: Tüm süreçlerimizde çevreye, topluma ve insana duyarlı bir yaklaşım benimseriz.",
+        ],
+        futureTitle: "Gelecek Perspektifimiz",
+        futureParagraphs: [
+          "Pharmatrue, etik değerlere ve bilimsel doğrulara bağlı kalarak, toplum sağlığını destekleyen çalışmalara devam etmektedir.",
+          "Daha sağlıklı bir dünya için güvenilir ürünler, güçlü iş birlikleri ve sürdürülebilir bir vizyonla ilerliyoruz.",
+        ],
+      },
+    },
+    products: {
+      deksolex25: { name: "Deksolex 25 mg 20 Film Kaplı Tablet", activeIngredient: "Deksketoprofen" },
+      kinomox400: { name: "Kinomox 400 mg 7 Film Kaplı Tablet", activeIngredient: "Moksifloksasin" },
+      pantges40: { name: "Pantges 40 mg 28 Enterik Kaplı Tablet", activeIngredient: "Pantoprazol" },
+      raventris10: { name: "Raventris 10 mg 16 Dağılabilir Tablet", activeIngredient: "Rasekadotril" },
+      raventris30: { name: "Raventris 30 mg 30 Dağılabilir Tablet", activeIngredient: "Rasekadotril" },
+      raventris100: { name: "Raventris 100 mg 20 Sert Kapsül", activeIngredient: "Rasekadotril" },
+      talavist20: { name: "Talavist 20 mg 4 Film Kaplı Tablet", activeIngredient: "Tadalafil" },
+      talavist5: { name: "Talavist 5 mg 28 Film Kaplı Tablet", activeIngredient: "Tadalafil" },
+      tioDeksolex4: { name: "Tio-Deksolex 25 mg / 4 mg 20 Film Kaplı Tablet", activeIngredient: "Deksketoprofen + Tiyokolşikosid" },
+      tioDeksolex8: { name: "Tio-Deksolex 25 mg / 8 mg 14 Film Kaplı Tablet", activeIngredient: "Deksketoprofen + Tiyokolşikosid" },
+      acidblock24: { name: "Acidblock 24 Çiğneme Tableti", description: "Rahatsız edici mide asidini dengeleyen çiğneme tableti.", size: "24 tablet" },
+      protexusThroat: { name: "Protexus Boğaz Spreyi 20 ml", description: "Boğaz mukozasını koruyarak ağrıyı ve ses kısıklığını hafifletir.", size: "20 ml" },
+      protexusNasalKids: { name: "Protexus Hafif Hipertonik Burun Spreyi Çocuklar İçin 20 ml", description: "Rinit tedavisini destekleyerek burun tıkanıklığını hafifletir.", size: "20 ml" },
+      protexusNasalAdult: { name: "Protexus Hipertonik Burun Spreyi Yetişkinler İçin 20 ml", description: "Solunum yolu hastalıklarında fazla mukusu azaltarak solunumu rahatlatır.", size: "20 ml" },
+      protexusCough: { name: "Protexus Öksürük Şurubu 170 ml", description: "Boğaz mukozasını korur, kuru ve balgamlı öksürüğü yatıştırır.", size: "170 ml" },
+      bgoodShampoo200: { name: "b-good care Bebek & Çocuk Şampuanı 200 ml", description: "Günlük kullanıma uygun saç ve vücut şampuanı.", size: "200 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodShampoo500: { name: "b-good care Bebek & Çocuk Şampuanı 500 ml", description: "Günlük kullanıma uygun saç ve vücut şampuanı.", size: "500 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodFoamShampoo: { name: "b-good care Yenidoğan Köpük Şampuanı 250 ml", description: "Saç derisi bakımını destekleyen köpük şampuan.", size: "250 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodNipplePad: { name: "b-good care Göğüs Pedi 60 adet", description: "Sütü hızlıca emerek kuruluk hissinin devam etmesine yardımcı olur.", size: "60 adet", ctaUrl: "https://bgood.com.tr" },
+      bgoodMassageOil: { name: "b-good care Bebek Masaj Yağı 150 ml", description: "Cildi beslemeye, yumuşatmaya ve rahatlatmaya yardımcı masaj yağı.", size: "150 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodRashCream50: { name: "b-good care Pişik Kremi 50 ml", description: "Pişik oluşumunu önlemeye yardımcı krem.", size: "50 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodRashCream100: { name: "b-good care Pişik Kremi 100 ml", description: "Pişik oluşumunu önlemeye yardımcı krem.", size: "100 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodNippleCream: { name: "b-good care Meme Ucu Kremi 30 ml", description: "Emzirme döneminde hassasiyeti yatıştırmaya ve doku bütünlüğünü korumaya yardımcı krem.", size: "30 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodBodyLotion: { name: "b-good care Bebek Vücut Sütü 250 ml", description: "Kuru ve hassas ciltlerin bakımını destekleyen krem.", size: "250 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodHandCream: { name: "b-good care El Kremi 50 ml", description: "Nemlendirici ve koruyucu el bakım kremi.", size: "50 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodArnicaGel: { name: "b-good care Arnica Montana Jel 50 ml", description: "Şişlik ve morlukları yatıştırmaya yardımcı jel.", size: "50 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodColdStick: { name: "b-good care Cold + Sense Stick 15 gr", description: "Çok kuru ciltleri soğuğa karşı koruyan, nemlendirmeye yardımcı stick.", size: "15 gr", ctaUrl: "https://bgood.com.tr" },
+      bgoodLipBalm: { name: "b-good care Dudak Balmı 12 ml", description: "Dudak koruyucu ve nemlendirici balm.", size: "12 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodSOSBalm: { name: "b-good care b-SOS Balm 15 ml", description: "Yüzeysel yaralanmalarda hızlı nemlendirmeye ve onarmaya yardımcı balm.", size: "15 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodToothpaste3to7: { name: "b-good care 3-7 Yaş Diş Macunu Florürsüz 50 ml", description: "3-7 yaş için florürsüz diş macunu.", size: "50 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodToothpaste7to12NoFluoride: { name: "b-good care 7-12 Yaş Diş Macunu Florürsüz 50 ml", description: "7-12 yaş için florürsüz diş macunu.", size: "50 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodToothpaste7to12Fluoride: { name: "b-good care 7-12 Yaş Diş Macunu Florürlü 50 ml", description: "7-12 yaş için florürlü diş macunu.", size: "50 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodAtopicShampoo: { name: "b-good care Atopik Şampuan Saç ve Vücut 500 ml", description: "Atopik ciltler için temizleyici ve nemlendirmeye yardımcı şampuan.", size: "500 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodShowerOil: { name: "b-good care Duş Yağı Atopik Ciltler 500 ml", description: "Kuru ve atopiye yatkın ciltleri nazikçe arındıran duş yağı.", size: "500 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodMoisturizerAtopic: { name: "b-good care Nemlendirici Vücut Kremi Atopik Ciltler 150 ml", description: "Kaşıntı ve gerginlik hissinin azaltılmasına yardımcı krem.", size: "150 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodAtopicSpray: { name: "b-good care Atopik S.O.S Sprey 180 ml", description: "Atak dönemlerinde cildi rahatlatmaya ve nem dengesini korumaya yardımcı sprey.", size: "180 ml", ctaUrl: "https://bgood.com.tr" },
+    },
+  },
+  en: {
+    locale: "en",
+    common: {
+      scrollTop: "Back to top",
+    },
+    metadata: {
+      title: "Pharmatrue | “A Step Toward the Future”",
+      description: "“A Step Toward the Future”",
+    },
+    header: {
+      searchAria: "Search",
+      searchPlaceholder: "Search",
+      searchClose: "Close search",
+      nav: {
+        about: "ABOUT US",
+        products: "PRODUCTS",
+        consumer: "Consumer Health Products",
+        rx: "Prescription Products",
+        brandsTitle: "Brands",
+        brands: {
+          bgood: "b-good care",
+          protexus: "Protexus",
+        },
+        contact: "CONTACT",
+      },
+    },
+    footer: {
+      quickLinks: "Quick Links",
+      corporate: "About Us",
+      products: "Products",
+      contact: "Contact",
+      legal: "Legal",
+      privacyNotice: "Disclosure",
+      privacy: "Privacy Policy",
+      infoSociety: "Information Society Services",
+      disclosure: "Disclosure",
+      privacyPolicy: "Privacy Policy",
+      office: "Office",
+      address:
+        "Merkez Yassıören Mah. Ağaçkakan Sok. No:15/A Arnavutköy / Istanbul / Türkiye",
+      phoneLabel: "+90 444 8 717",
+      copyright: "Pharmatrue 2025. All rights reserved.",
+      disclaimer: "Information on this site does not replace consulting a doctor or pharmacist.",
+    },
+    hero: {
+      eyebrow: "Pharmatrue",
+      title: "Advancing with quality, trust, and ethical values",
+      body:
+        "Guided by science, we deliver reliable solutions for healthcare professionals and patients to build a healthier future.",
+      cta: "Scroll for more",
+    },
+    why: {
+      subtitle: "Our Values",
+      title: "WHY PHARMATRUE?",
+      body:
+        "We focus on quality and trust, scientific consistency, and sustainability to deliver reliable solutions for healthcare professionals and patients.",
+      highlights: [
+        { title: "Quality & Trust" },
+        { title: "Scientific Consistency" },
+        { title: "Sustainability" },
+      ],
+    },
+    brands: {
+      heading: "OUR BRANDS",
+    },
+    product: {
+      pageTitle: "Products",
+      noticeTitle: "Notice:",
+      noticeBody:
+        "Products in Pharmatrue’s portfolio are listed below. These pages are intended for healthcare professionals.",
+      tabs: {
+        all: "All",
+        consumer: "Consumer Health",
+        device: "Medical Devices",
+        rx: "Prescription Products",
+      },
+      empty: "No products found in this category.",
+      detail: {
+        active: "Active Ingredient:",
+        kub: "Summary of Product Characteristics:",
+        size: "Size:",
+        learnMore: "Click for more details",
+        categories: {
+          consumer: "Consumer Health",
+          device: "Medical Devices",
+          rx: "Prescription Products",
+        },
+      },
+      pagination: {
+        prev: "Previous",
+        next: "Next",
+      },
+    },
+    hcp: {
+      title: "Content for healthcare professionals",
+      body: "This page contains information on Pharmatrue’s product portfolio and is intended for healthcare professionals. Please read the package leaflet carefully for dosage, use, and possible side effects.",
+      dontShow: "Do not show again",
+      backHome: "Back to homepage",
+      continue: "Continue",
+      close: "Close",
+    },
+    contact: {
+      pageTitle: "Contact",
+      formTitle: "Get in Touch",
+      formSubtitle: "Send us a message and we’ll get back to you shortly",
+      placeholders: {
+        firstName: "First name*",
+        lastName: "Last name*",
+        email: "Email*",
+        phone: "Phone*",
+        subject: "Subject*",
+        message: "Write your message",
+      },
+      submit: "Send",
+      needHelpTitle: "Need help?",
+      needHelpSubtitle: "Call or send a message and we will respond promptly",
+      hoursNote: "Weekdays 09:00 - 18:00",
+      emailNote: "Reach us anytime via e-mail",
+      addressLabel: "Address",
+      phone: "+90 444 8 717",
+      email: "info@pharmatrue.com.tr",
+      address: "Yassıören Mah. Ağaçkakan Sok. No:15/A Arnavutköy / Istanbul / Türkiye",
+    },
+    about: {
+      pageTitle: "About Us",
+      toc: [
+        { href: "#h-hakkimizda", label: "About Us" },
+        { href: "#h-misyon-2", label: "Our Mission" },
+        { href: "#h-vizyon", label: "Our Vision" },
+        { href: "#h-kalite", label: "Quality & Sustainability" },
+        { href: "#h-prensipler", label: "Core Principles" },
+        { href: "#h-gelecek", label: "Vision for the Future" },
+      ],
+      sections: {
+        aboutTitle: "About Us",
+        aboutParagraphs: [
+          "Pharmatrue Sağlık Malzemeleri A.Ş was founded in 2023 to bring a fresh perspective to the pharmaceutical industry with innovative investments and to contribute to healthcare. Combining this bold step with the motto “A Step Toward the Future,” Pharmatrue stands out with its commitment to quality, research, innovation, and cutting-edge technology. These core values aim to create an exceptional impact in the pharmaceutical sector.",
+          "Our product range spans a wide therapeutic spectrum—respiratory diseases, internal medicine, gastroenterology, orthopedics, physical therapy and rehabilitation, ENT, pediatrics, family medicine, and emergency medicine—with the goal of improving patients’ quality of life. At Pharmatrue, we focus on the individual needs and health requirements of every patient, delivering comprehensive and innovative solutions.",
+          "Our purpose is not only to supply medicines to our patients but also to play a transformative role in the healthcare industry. To that end, we continuously conduct research and development, closely following the latest scientific and technological advances. This allows us to maximize patient trust and satisfaction while offering the most effective treatment options.",
+          "As Pharmatrue Sağlık Malzemeleri A.Ş, we will continue to add value to our customers and society by staying firmly committed to quality, research, innovation, and social responsibility. We look to the future with hope and work for a healthier world.",
+        ],
+        missionTitle: "Our Mission",
+        missionBody:
+          "To contribute to better healthcare services by offering the highest-quality and most reliable products.",
+        visionTitle: "Our Vision",
+        visionBody:
+          "To remain a pioneer in the industry through cutting-edge technology and innovative solutions.",
+        qualityTitle: "Quality & Sustainability",
+        qualityBody:
+          "We meet the highest hygiene standards and hold international quality certification. We operate with sensitivity to the environment, sustainability, and respect for people.",
+        principlesTitle: "Pharmatrue’s Core Principles",
+        principlesParagraphs: [
+          "Quality and Reliability: By adhering to ethical values and sustainable pharmaceutical production, we aim to be a trusted brand for healthcare professionals.",
+          "Scientific Excellence: Focusing on scientific research and development, we aim to understand the causes of diseases, develop the most effective treatments, and follow every innovation around the world.",
+          "Team Spirit: As the Pharmatrue family, we recognize the value of every teammate, foster a workplace where talents can reach their full potential, and build a strong team through collaboration and communication.",
+        ],
+        futureTitle: "Vision for the Future",
+        futureParagraphs: [
+          "At Pharmatrue, we will expand our contributions to protecting and improving human health through investments across all therapeutic areas. By closely following every scientific and technological development, we will stay at the forefront of innovation in pharmaceuticals.",
+          "Our goal is to enhance quality of life in the fight against disease. In sustainable collaboration with all stakeholders, we work tirelessly, with sensitivity to people and the environment, for a healthier world.",
+          "At every step, we carry the importance and value of health. With our plans for the future, we will continue to reach more conditions and deliver therapeutic and preventive solutions.",
+          "With our commitment to health, Pharmatrue is ready to play a leading role in shaping future healthcare solutions.",
+        ],
+      },
+    },
+    products: {
+      deksolex25: { name: "Deksolex 25 mg 20 Film-Coated Tablets", activeIngredient: "Dexketoprofen" },
+      kinomox400: { name: "Kinomox 400 mg 7 Film-Coated Tablets", activeIngredient: "Moxifloxacin" },
+      pantges40: { name: "Pantges 40 mg 28 Enteric-Coated Tablets", activeIngredient: "Pantoprazole" },
+      raventris10: { name: "Raventris 10 mg 16 Orally Disintegrating Tablets", activeIngredient: "Racecadotril" },
+      raventris30: { name: "Raventris 30 mg 30 Orally Disintegrating Tablets", activeIngredient: "Racecadotril" },
+      raventris100: { name: "Raventris 100 mg 20 Hard Capsules", activeIngredient: "Racecadotril" },
+      talavist20: { name: "Talavist 20 mg 4 Film-Coated Tablets", activeIngredient: "Tadalafil" },
+      talavist5: { name: "Talavist 5 mg 28 Film-Coated Tablets", activeIngredient: "Tadalafil" },
+      tioDeksolex4: { name: "Tio-Deksolex 25 mg / 4 mg 20 Film-Coated Tablets", activeIngredient: "Dexketoprofen + Thiocolchicoside" },
+      tioDeksolex8: { name: "Tio-Deksolex 25 mg / 8 mg 14 Film-Coated Tablets", activeIngredient: "Dexketoprofen + Thiocolchicoside" },
+      acidblock24: { name: "Acidblock 24 Chewable Tablets", description: "Chewable tablet to help balance stomach acid.", size: "24 tablets" },
+      protexusThroat: { name: "Protexus Throat Spray 20 ml", description: "Helps protect throat mucosa to ease soreness and hoarseness.", size: "20 ml" },
+      protexusNasalKids: { name: "Protexus Mild Hypertonic Nasal Spray for Children 20 ml", description: "Supports rhinitis treatment and relieves congestion.", size: "20 ml" },
+      protexusNasalAdult: { name: "Protexus Hypertonic Nasal Spray for Adults 20 ml", description: "Reduces excess mucus in respiratory conditions to ease breathing.", size: "20 ml" },
+      protexusCough: { name: "Protexus Cough Syrup 170 ml", description: "Protects throat mucosa and soothes dry and productive cough.", size: "170 ml" },
+      bgoodShampoo200: { name: "b-good care Baby & Kids Shampoo 200 ml", description: "Daily hair and body shampoo.", size: "200 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodShampoo500: { name: "b-good care Baby & Kids Shampoo 500 ml", description: "Daily hair and body shampoo.", size: "500 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodFoamShampoo: { name: "b-good care Newborn Foam Shampoo 250 ml", description: "Foam shampoo that supports scalp care.", size: "250 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodNipplePad: { name: "b-good care Breast Pads 60 pcs", description: "Quickly absorbs milk to help maintain dryness.", size: "60 pcs", ctaUrl: "https://bgood.com.tr" },
+      bgoodMassageOil: { name: "b-good care Baby Massage Oil 150 ml", description: "Helps nourish, soften, and relax the skin.", size: "150 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodRashCream50: { name: "b-good care Diaper Rash Cream 50 ml", description: "Helps prevent diaper rash.", size: "50 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodRashCream100: { name: "b-good care Diaper Rash Cream 100 ml", description: "Helps prevent diaper rash.", size: "100 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodNippleCream: { name: "b-good care Nipple Cream 30 ml", description: "Helps soothe sensitivity during breastfeeding and protect skin integrity.", size: "30 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodBodyLotion: { name: "b-good care Baby Body Milk 250 ml", description: "Supports care of dry and sensitive skin.", size: "250 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodHandCream: { name: "b-good care Hand Cream 50 ml", description: "Moisturizing and protective hand care cream.", size: "50 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodArnicaGel: { name: "b-good care Arnica Montana Gel 50 ml", description: "Helps soothe swelling and bruising.", size: "50 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodColdStick: { name: "b-good care Cold + Sense Stick 15 gr", description: "Helps protect very dry skin against cold and supports hydration.", size: "15 gr", ctaUrl: "https://bgood.com.tr" },
+      bgoodLipBalm: { name: "b-good care Lip Balm 12 ml", description: "Protective and moisturizing lip balm.", size: "12 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodSOSBalm: { name: "b-good care b-SOS Balm 15 ml", description: "Helps rapidly moisturize and repair minor surface injuries.", size: "15 ml", ctaUrl: "https://bgood.com.tr" },
+      bgoodToothpaste3to7: {
+        name: "b-good care Toothpaste Fluoride-Free 3-7 Years 50 ml",
+        description: "Fluoride-free toothpaste for ages 3-7.",
+        size: "50 ml",
+        ctaUrl: "https://bgood.com.tr",
+      },
+      bgoodToothpaste7to12NoFluoride: {
+        name: "b-good care Toothpaste Fluoride-Free 7-12 Years 50 ml",
+        description: "Fluoride-free toothpaste for ages 7-12.",
+        size: "50 ml",
+        ctaUrl: "https://bgood.com.tr",
+      },
+      bgoodToothpaste7to12Fluoride: {
+        name: "b-good care Toothpaste with Fluoride 7-12 Years 50 ml",
+        description: "Fluoride toothpaste for ages 7-12.",
+        size: "50 ml",
+        ctaUrl: "https://bgood.com.tr",
+      },
+      bgoodAtopicShampoo: {
+        name: "b-good care Atopic Shampoo Hair & Body 500 ml",
+        description: "Cleanser and moisturizer for atopic-prone skin.",
+        size: "500 ml",
+        ctaUrl: "https://bgood.com.tr",
+      },
+      bgoodShowerOil: {
+        name: "b-good care Shower Oil for Atopic Skin 500 ml",
+        description: "Gently cleanses dry and atopy-prone skin.",
+        size: "500 ml",
+        ctaUrl: "https://bgood.com.tr",
+      },
+      bgoodMoisturizerAtopic: {
+        name: "b-good care Moisturizing Body Cream Atopic Skin 150 ml",
+        description: "Helps reduce itching and tightness.",
+        size: "150 ml",
+        ctaUrl: "https://bgood.com.tr",
+      },
+      bgoodAtopicSpray: {
+        name: "b-good care Atopic S.O.S Spray 180 ml",
+        description:
+          "Helps soothe the skin and maintain moisture balance during flare-ups.",
+        size: "180 ml",
+        ctaUrl: "https://bgood.com.tr",
+      },
+    },
+  },
+} as const;
+
+export const SUPPORTED_LOCALES = Object.keys(messages);
+
+export function getMessages(locale: string | undefined) {
+  if (!locale) return messages.tr;
+  return messages[locale as keyof typeof messages] ?? messages.tr;
+}
+
+export function resolveLocaleFromPath(pathname: string | null) {
+  if (!pathname || pathname === "/") return "tr";
+  const parts = pathname.split("/");
+  const candidate = parts[1];
+  return SUPPORTED_LOCALES.includes(candidate) ? candidate : "tr";
+}
