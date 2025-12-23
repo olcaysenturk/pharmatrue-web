@@ -25,7 +25,7 @@ export function WhyPharmatrue() {
           <p className="cs_section_subtitle cs_accent_color cs_fs_18 cs_semibold cs_heading_font">
             {t.why.subtitle}
           </p>
-          <h2 className="cs_section_title cs_fs_48 mb-0">
+          <h2 className="cs_section_title cs_fs_48 mb-0 font-bold text-[#060077]!">
             {t.why.title}
           </h2>
           {t.why.body ? (

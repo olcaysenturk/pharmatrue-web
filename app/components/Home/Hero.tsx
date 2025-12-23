@@ -9,25 +9,22 @@ export function Hero() {
   return (
     <section
       className="cs_hero cs_style_1 cs_bg_filed position-relative"
-      style={{ backgroundImage: "url('/assets/images/hero_bg_1.jpeg')" }}
+      style={{ backgroundImage: "url('/assets/images/slider-1.jpg')" }}
     >
-      <div className="cs_hero_overlay position-absolute" />
+      
       <div className="container">
         <div className="cs_hero_content_wrapper">
-        <div className="cs_hero_content">
-          <h3 className="cs_hero_title_mini cs_fs_18 cs_white_color cs_semibold">
-            {t.hero.eyebrow}
-          </h3>
-          <h1 className="cs_hero_title cs_fs_48 cs_white_color">
-            {t.hero.title}
-          </h1>
-          {t.hero.body ? (
-            <p className="cs_white_color cs_fs_18 cs_mt_20" style={{ maxWidth: 640 }}>
-              {t.hero.body}
-            </p>
-          ) : null}
+          <div className="cs_hero_content">
+            <h1 className="text-white  text-2xl md:text-6xl">{t.hero.eyebrow}</h1>
+            <h2 className="text-white cs_fs_36 italic">
+              {t.hero.tagline}
+            </h2>
+            <h3
+              className="cs_hero_title text-white text-2xl md:text-6xl mt-5"
+              dangerouslySetInnerHTML={{ __html: t.hero.title }}
+            />
+          </div>
         </div>
-      </div>
       </div>
 
       <a

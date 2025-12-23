@@ -116,7 +116,7 @@ export function Header() {
     <>
       <header
         className={`sticky w-full top-0 z-40 backdrop-blur -mb-[65px] transition-colors ${
-          isScrolled ? "bg-[#132573]/90 shadow-lg active" : "bg-transparent"
+          isScrolled ? "bg-[#060077]/90 shadow-lg active" : "bg-transparent"
         }`}
       >
         <div className="container-fluid">

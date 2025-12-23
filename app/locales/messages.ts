@@ -46,7 +46,8 @@ export const messages = {
     },
     hero: {
       eyebrow: "Pharmatrue",
-      title: "Kalite, güven ve etik değerlerle geleceğe doğru bir adım",
+      tagline: "Geleceğe \"doğru\" bir adım...",
+      title: "Bilimle güçlenen <br /> bir gelecek...",
       body:
         "Bilimin rehberliğinde, sağlık profesyonelleri ve hastalar için güvenilir çözümler sunarak daha sağlıklı bir geleceğe katkı sağlıyoruz.",
       cta: "Daha fazlası için kaydırın",
@@ -252,6 +253,7 @@ export const messages = {
     },
     hero: {
       eyebrow: "Pharmatrue",
+      tagline: "A \"true\" step toward the future...",
       title: "Advancing with quality, trust, and ethical values",
       body:
         "Guided by science, we deliver reliable solutions for healthcare professionals and patients to build a healthier future.",

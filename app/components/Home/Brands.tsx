@@ -24,7 +24,7 @@ export function Brands() {
       <div className="mx-auto w-full max-w-6xl px-6">
         <div className="cs_section_heading cs_style_1 cs_type_1">
           <div className="cs_section_heading_left">
-            <h2 className="cs_section_title cs_fs_48 mb-0">
+            <h2 className="cs_section_title cs_fs_48 mb-0 font-bold text-[#060077]!">
               {t.brands.heading}
             </h2>
           </div>
