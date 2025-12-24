@@ -3,22 +3,18 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
-const STORAGE_KEY = "pharmatrue_hcp_ack";
-
 export function HcpNotice({ copy, homeHref = "/" }) {
   const [open, setOpen] = useState(false);
-  const [dontShow, setDontShow] = useState(true);
 
   useEffect(() => {
-    const hasAck = typeof window !== "undefined" && localStorage.getItem(STORAGE_KEY) === "1";
-    if (!hasAck) {
-      const timer = window.setTimeout(() => {
-        setOpen(true);
-        document.body.classList.add("overflow-hidden");
-      }, 300);
-      return () => window.clearTimeout(timer);
-    }
-    return undefined;
+    const timer = window.setTimeout(() => {
+      setOpen(true);
+      document.body.classList.add("overflow-hidden");
+    }, 300);
+    return () => {
+      window.clearTimeout(timer);
+      document.body.classList.remove("overflow-hidden");
+    };
   }, []);
 
   const close = () => {
@@ -27,13 +23,6 @@ export function HcpNotice({ copy, homeHref = "/" }) {
   };
 
   const handleAccept = () => {
-    if (dontShow) {
-      try {
-        localStorage.setItem(STORAGE_KEY, "1");
-      } catch (e) {
-        // ignore storage errors
-      }
-    }
     close();
   };
 
@@ -60,22 +49,10 @@ export function HcpNotice({ copy, homeHref = "/" }) {
         <p id="hcpDesc" className="cs_modal_desc">
           {copy.body}
         </p>
-        <div className="form-check" style={{ marginBottom: 8 }}>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="dontShow"
-            checked={dontShow}
-            onChange={(e) => setDontShow(e.target.checked)}
-          />
-          <label className="form-check-label" htmlFor="dontShow">
-            {copy.dontShow}
-          </label>
-        </div>
         <div className="cs_modal_actions">
-        <Link href={homeHref} className="btn btn-outline-secondary">
-          {copy.backHome}
-        </Link>
+          <Link href={homeHref} className="btn btn-outline-secondary">
+            {copy.backHome}
+          </Link>
           <button className="btn btn-primary" id="btnHcpAccept" onClick={handleAccept}>
             {copy.continue}
           </button>
